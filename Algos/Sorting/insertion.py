@@ -7,19 +7,17 @@ def insertion_sort(arr):
     return arr
 
 
-
-def insertion_sort_2 (arr):
+def insertion_sort_2(arr):
     for i in range(1, len(arr)):
+        val = arr[i]
+
         j = i
-        val = arr[j]
-        idx_to_swap = j
-        while True:
-            if j == 0 or arr[j - 1] < val:
-                idx_to_swap = j - 1
-                break
+        while j - 1 >= 0 and val < arr[j - 1]:
+            arr[j] = arr[j - 1]
             j -= 1
-        arr[idx_to_swap], arr[j] = arr[j], arr[idx_to_swap]
+        arr[j] = val
     return arr
+
 
 a = [12, 8, 4, 1]
 res = insertion_sort_2(a)
